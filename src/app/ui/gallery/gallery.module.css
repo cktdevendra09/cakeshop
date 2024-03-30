@@ -1,0 +1,8 @@
+
+
+.caption figcaption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(-50%);
+}

@@ -1,95 +1,184 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import NavbarUI from "./ui/navbar/NavbarUI";
+import HeaderUI from "./ui/header/HeaderUI";
+import FeaturesUI from "./ui/features/FeaturesUI";
+import TeamUI from "./ui/team/TeamUI";
+import GalleryUI from "./ui/gallery/GalleryUI";
+import FooterUI from "./ui/footer/FooterUI";
 
 export default function Home() {
+
+  const CakeList = [
+    {
+      id: 1,
+      title: 'Apple Cake',
+      img: '/images/Apple-cake.jpg',
+    },
+
+    {
+      id: 2,
+      title: 'Black Forest Cake',
+      img: '/images/black-forest-cake.jpg',
+    },
+
+    {
+      id: 3,
+      title: 'Chocolate Cake',
+      img: '/images/chocolate-cake.jpg',
+    },
+
+    {
+      id: 4,
+      title: 'Chocolava Cake',
+      img: '/images/chocolava-cake.jpg',
+    },
+
+    {
+      id: 5,
+      title: 'Cupcakes',
+      img: '/images/chocolate-cake.jpg',
+    },
+
+    {
+      id: 6,
+      title: 'Photo Cake',
+      img: '/images/photo-cake.jpg',
+    },
+
+    {
+      id: 7,
+      title: 'Poster Cake',
+      img: '/images/Post.jpg',
+    },
+  ];
+
+
+
+  const TeamList = [
+    {
+      id: 1,
+      name: 'Kandhi Lal',
+      title: 'CEO',
+      img: '/logo/avatar.png',
+    },
+    {
+      id: 2,
+      name: 'Kandhi Lal',
+      title: 'CEO',
+      img: '/logo/avatar.png',
+    }, {
+      id: 3,
+      name: 'Kandhi Lal',
+      title: 'CEO',
+      img: '/logo/avatar.png',
+    },
+    {
+      id: 4,
+      name: 'Kandhi Lal',
+      title: 'CEO',
+      img: '/logo/avatar.png',
+    },
+
+
+  ];
+
+
+
+  const ServicesList = [
+    {
+      id: 1,    
+      title: 'Cakes',
+      img: '/logo/f1.jpg',
+    },
+    {
+      id: 2,    
+      title: 'Cup Cakes',
+      img: '/logo/f2.jpg',
+    }, {
+      id: 3,      
+      title: 'Pastry',
+      img: '/logo/f5.jpg',
+    },
+
+
+  ];
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <NavbarUI />
+      <HeaderUI />
+
+      {/* FEATURES */}
+      <div className="bg container-flude px-4 py-5" style={{ background: 'url(/backgrounds/13.jpg)' }}>
+        <div className="row py-5">
+          <div className="row mb-8 justify-content-center">
+            <div className="col-lg-8 col-md-12 col-12 text-center">
+              <h2 className="mb-2 display-4 fw-bold">Services</h2>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-10 mx-auto">
+            <div className="row mt-4">
+              {ServicesList.map(({ id, title, img }) => (
+                <div className="col-xl-4 col-lg-4 col-md-6 mb-4" key={id}>
+                  <FeaturesUI title={title} img={img} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+
+      {/* GALLARY */}
+      <div className="container-fluid">
+        <div className="px-lg-5">
+          <div className="row py-5">
+            <div className="row mb-8 justify-content-center">
+              <div className="col-lg-8 col-md-12 col-12 text-center">
+                <h2 className="mb-2 display-4 fw-bold">Tasty  Cakes</h2>
+                <p className="lead">Geeks teachers are icons, experts, and industry rock stars excited to
+                  share their
+                  experience, wisdom, and trusted tools with you.</p>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-8 mx-auto">
+              <div className="row">
+                {CakeList.map(({ id, title, img }) => (
+                  <div className="col-xl-4 col-lg-4 col-md-6 mb-4" key={id}>
+                    <GalleryUI title={title} img={img} />
+                  </div>
+                ))}
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+      {/* TEAM  */}
+      <div className="p-5  bg-light-gradient-top " style={{ background: 'url(/backgrounds/14.jpg)' }} >
+        <div className="container">
+          <div className="row">
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+            {TeamList.map(({ id, title, img, name }) => (
+              <div className="col-xl-3 col-lg-4 col-md-6 mb-4" key={id}>
+                <TeamUI title={title} img={img} name={name} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+
+      <FooterUI />
+
     </main>
   );
 }
